@@ -1,0 +1,49 @@
+import React, { useState } from 'react';
+
+const ChatPage = () => {
+  const [messages, setMessages] = useState([
+    { sender: 'John Doe', content: 'Hello there!' },
+    { sender: 'You', content: 'Hey! How are you?' },
+  ]);
+  const [newMessage, setNewMessage] = useState('');
+
+  const handleSendMessage = (e) => {
+    e.preventDefault();
+    if (newMessage.trim()) {
+      setMessages([...messages, { sender: 'You', content: newMessage }]);
+      setNewMessage(''); // Clear input
+    }
+  };
+
+  return (
+    <div className="chat-container">
+      <div className="chat-header">
+        <h2>Chat</h2>
+      </div>
+
+      <div className="chat-messages">
+        {messages.map((message, index) => (
+          <div
+            key={index}
+            className={`message ${message.sender === 'You' ? 'message-right' : 'message-left'}`}
+          >
+            <p><strong>{message.sender}:</strong> {message.content}</p>
+          </div>
+        ))}
+      </div>
+
+      <form onSubmit={handleSendMessage} className="chat-input">
+        <input
+          type="text"
+          value={newMessage}
+          onChange={(e) => setNewMessage(e.target.value)}
+          placeholder="Type a message"
+          required
+        />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  );
+};
+
+export default ChatPage;
