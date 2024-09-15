@@ -1,0 +1,20 @@
+import React from 'react';
+
+const AboutPage = () => {
+  return (
+    <div className="about-container">
+      <h2>About Fruit.AI</h2>
+      <p>Fruit.AI is designed to help you lead a healthier life through personalized suggestions, fitness tips, and chat-based interaction.</p>
+      <h3>Our Features:</h3>
+      <ul>
+        <li>Health and Fitness Advice</li>
+        <li>Real-time Chat Support</li>
+        <li>Track your health data</li>
+      </ul>
+      <h3>Why Choose Us?</h3>
+      <p>We integrate the latest AI technology to provide personalized suggestions tailored to your health needs.</p>
+    </div>
+  );
+};
+
+export default AboutPage;
